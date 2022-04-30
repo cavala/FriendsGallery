@@ -1,6 +1,6 @@
-# Flask + Okta Hosted Login Example
+# Flask + Python + MongoDB + AWS S3 +  Okta Hosted Login
 
-This example shows you how to use Flask to log in to your application with an Okta Hosted Login page.  The login is achieved through the [authorization code flow](https://developer.okta.com/authentication-guide/implementing-authentication/auth-code), where the user is redirected to the Okta-Hosted login page.  After the user authenticates, they are redirected back to the application with an access code that is then exchanged for an access token.
+This application shows  you how to use Flask to log in to your application with an Okta Hosted Login page.  The login is achieved through the [authorization code flow](https://developer.okta.com/authentication-guide/implementing-authentication/auth-code), where the user is redirected to the Okta-Hosted login page.  After the user authenticates, they are redirected back to the application with an access code that is then exchanged for an access token.
 
 > Requires Python version 3.6.0 or higher.
 
@@ -16,8 +16,7 @@ Before running this sample, you will need the following:
 To run this application, you first need to clone this repo:
 
 ```bash
-git clone git@github.com:okta/samples-python-flask.git
-cd samples-python-flask
+git clone git@github.com:cavala/FriendsGallery.git
 ```
 
 Then install dependencies:
@@ -26,32 +25,6 @@ Then install dependencies:
 pip install -r requirements.txt
 ```
 
-Open the `okta-hosted-login` directory and copy the [`client_secrets.json.dist`](client_secrets.json.dist) to `client_secrets.json`:
-
-```bash
-cd okta-hosted-login
-cp client_secrets.json.dist client_secrets.json
-```
-
-You now need to gather the following information from the Okta Developer Console:
-
-- **Client ID** and **Client Secret** - These can be found on the "General" tab of the Web application that you created earlier in the Okta Developer Console.
-- **Issuer** - This is the URL of the authorization server that will perform authentication.  All Developer Accounts have a "default" authorization server.  The issuer is a combination of your Org URL (found in the upper right of the console home page) and `/oauth2/default`. For example, `https://dev-1234.oktapreview.com/oauth2/default`.
-
-Fill in the information that you gathered in the `client_secrets.json` file.
-
-```json
-{
-  "auth_uri": "https://{yourOktaDomain}/oauth2/default/v1/authorize",
-  "client_id": "{yourClientId}",
-  "client_secret": "{yourClientSecret}",
-  "redirect_uri": "http://localhost:8080/authorization-code/callback",
-  "issuer": "https://{yourOktaDomain}/oauth2/default",
-  "token_uri": "https://{yourOktaDomain}/oauth2/default/v1/token",
-  "token_introspection_uri": "https://{yourOktaDomain}/oauth2/default/v1/introspect",
-  "userinfo_uri": "https://{yourOktaDomain}/oauth2/default/v1/userinfo"
-}
-```
 
 Start the app server:
 
