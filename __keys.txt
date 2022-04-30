@@ -1,0 +1,15 @@
+mongomaster
+UWGzJ0IqZBwSZ0sr
+
+S3
+Account ID: 157044950866
+ID de usuário canônico: d09201f2c44295e41b69cdcb8f35b83cc23ba85bfd1731c391fcf1ab68d97023
+
+us-east-1
+S3FriendsGallery.dev-59328842
+nome do bucket aws s3: s3bucket.dev-59328842
+
+pasta friendsGallery
+
+ID da chave de acesso AKIAJW425JIRI4D5XQCA
+Chave de acesso Secreta 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

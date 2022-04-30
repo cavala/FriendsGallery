@@ -1,0 +1,34 @@
+{% extends "template.html" %}
+
+{% block content %}
+    <div class="container">
+      <center>
+        <h1 style="padding: 20px">Friend's Gallery</h1>
+        <br />
+      </center>
+      <div class="card" style="width: 18rem;">
+        <form method="post" enctype="multipart/form-data">          
+          <img class="card-img-top" v-if="images[0].content" alt="Card image cap" :src="images[0].content"
+              width="200px" style="padding: 20px; border-radius: 30px;" v-show="images[0].content" />
+          <label for="myfile">Select a file:</label>               
+          <input type="file" id="myfile" name = "myfile" value ="myfile" @change="onImage(0, $event)" accept="image/*"  class="btn btn-success" /> 
+          <br>
+  
+          <label for="comments">Comments</label>
+          <br>
+          <textarea name="comments"
+                    placeholder="Write your comments here..."
+                    rows="3"
+                    cols="50"
+                    >{{ request.form['comments'] }}</textarea>
+          <br>
+          <button type="submit">Submit</button>
+
+          {{msg}}
+        </form>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/vue.js') }}"></script> 
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>     
+
+{% endblock content %}

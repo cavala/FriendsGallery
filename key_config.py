@@ -1,0 +1,8 @@
+access_key = 'AKIASJEE3Y5JKODMARZA'
+secret_access_key = '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'
+s3_bucket_name = 's3bucket.dev-59328842'
+s3_folder_name = 'friendsGallery'
+db_name='myFirstDatabase'
+db_username='mongomaster'
+db_password='UWGzJ0IqZBwSZ0sr'
+db_host='mongodb+srv://mongomaster:UWGzJ0IqZBwSZ0sr@cluster0.fxzds.mongodb.net/'

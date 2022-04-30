@@ -1,0 +1,43 @@
+{% extends "template.html" %}
+
+{% block content %}
+  
+  <div class="container">
+    <center>
+      <h1 style="padding: 20px">Friend's Gallery</h1>
+      <br />
+    </center>
+      {% for dict_item in imgDict %} 
+        <form method="post">
+          <div class="card" style="width: 25rem;"> 
+            <img class="card-img-top" src = "{{ dict_item['imgSrc'] }}"   alt=""> 
+            <div class="card-body"> 
+              <p class="card-text"> {{dict_item['imgTitle']}} </p>            
+            </div>
+          
+             {% if dict_item['likes']|length == 1 %}
+            <p class="card-text"> Liked by: <b>{{dict_item['likes'][0]['username']}} </b>
+            {% elif dict_item['likes']|length == 2 %}
+            <p class="card-text"> Liked by: <b>{{dict_item['likes'][0]['username']}} and {{dict_item['likes'][1]['username']}} </b>
+            {% elif dict_item['likes']|length > 2 %}
+            <p class="card-text"> Liked by: <b>{{dict_item['likes'][0]['username']}} and other {{dict_item['likes']|length - 1}} people </b>
+            {% endif%}
+            
+            {% for comment in dict_item['comments'] %} 
+            <p class="card-text"> <b>{{comment['username']}}: </b> {{comment['comment']}} </p> <br>           
+            {% endfor %} 
+            <br>
+            <label for="comments">Comments</label> <a href="{{ url_for('like', postId=dict_item['postId']) }}">Like</a>
+            <br>
+            <textarea v-model="message" placeholder="Write your comments here..." rows="3" cols="50" maxlength="200"></textarea>            
+            <button type="submit">Submit</button>
+            {{msg}}        
+          </div> 
+        </form>
+      {% endfor %}       
+    {{msg}}      
+  </div>
+  
+
+  
+{% endblock content %}
